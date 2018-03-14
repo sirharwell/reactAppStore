@@ -370,3 +370,21 @@ Processing by Api::AppsController#index as HTML
 Completed 200 OK in 175ms (Views: 153.0ms | ActiveRecord: 9.4ms)
 
 
+Started GET "/api/apps" for 127.0.0.1 at 2018-03-14 12:32:34 -0600
+Processing by Api::AppsController#index as HTML
+  [1m[36mApp Load (1.9ms)[0m  [1m[34mSELECT "apps".* FROM "apps" ORDER BY "apps"."created_at" DESC[0m
+Completed 200 OK in 141ms (Views: 138.5ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/api/apps" for 127.0.0.1 at 2018-03-14 13:53:02 -0600
+Processing by Api::AppsController#index as HTML
+  [1m[36mApp Load (21.5ms)[0m  [1m[34mSELECT "apps".* FROM "apps" ORDER BY "apps"."created_at" DESC[0m
+Completed 200 OK in 242ms (Views: 216.0ms | ActiveRecord: 21.5ms)
+
+
+Started GET "/api/apps" for 127.0.0.1 at 2018-03-14 13:54:22 -0600
+Processing by Api::AppsController#index as HTML
+  [1m[36mApp Load (2.2ms)[0m  [1m[34mSELECT "apps".* FROM "apps" ORDER BY "apps"."created_at" DESC[0m
+Completed 200 OK in 134ms (Views: 128.2ms | ActiveRecord: 2.2ms)
+
+

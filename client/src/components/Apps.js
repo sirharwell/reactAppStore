@@ -12,7 +12,13 @@ import {
 } from 'semantic-ui-react';
 
 class Apps extends React.Component {
-  state = { category: '' }
+  state = { category: '', showForm: false }
+
+  toggleForm = () => {
+    this.setState( state => {
+      return { showForm: !state.showForm}
+    });
+  }
 
   apps = () => {
     const { apps } = this.props;
