@@ -9,10 +9,10 @@ import store from './store';
 import 'semantic-ui-css/semantic.min.css'
 
 ReactDOM.render(
-<provider store= {store}>
+<Provider store= {store}>
   <BrowserRouter>
     <App />
   </BrowserRouter>
-</provider>
+</Provider>,
  document.getElementById('root'));
 registerServiceWorker();
