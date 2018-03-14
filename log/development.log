@@ -340,3 +340,33 @@ Processing by Api::AppsController#index as HTML
 Completed 200 OK in 140ms (Views: 76.4ms | ActiveRecord: 59.6ms)
 
 
+Started GET "/api/apps" for 127.0.0.1 at 2018-03-14 12:08:51 -0600
+Processing by Api::AppsController#index as HTML
+  [1m[36mApp Load (4.7ms)[0m  [1m[34mSELECT "apps".* FROM "apps" ORDER BY "apps"."created_at" DESC[0m
+Completed 200 OK in 3526ms (Views: 2878.0ms | ActiveRecord: 568.1ms)
+
+
+Started GET "/api/apps" for 127.0.0.1 at 2018-03-14 12:16:58 -0600
+Processing by Api::AppsController#index as HTML
+  [1m[36mApp Load (2.3ms)[0m  [1m[34mSELECT "apps".* FROM "apps" ORDER BY "apps"."created_at" DESC[0m
+Completed 200 OK in 137ms (Views: 130.3ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/api/apps" for 127.0.0.1 at 2018-03-14 12:17:11 -0600
+Processing by Api::AppsController#index as HTML
+  [1m[36mApp Load (1.2ms)[0m  [1m[34mSELECT "apps".* FROM "apps" ORDER BY "apps"."created_at" DESC[0m
+Completed 200 OK in 47ms (Views: 45.5ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/api/apps" for 127.0.0.1 at 2018-03-14 12:18:11 -0600
+Processing by Api::AppsController#index as HTML
+  [1m[36mApp Load (12.1ms)[0m  [1m[34mSELECT "apps".* FROM "apps" ORDER BY "apps"."created_at" DESC[0m
+Completed 200 OK in 57ms (Views: 44.4ms | ActiveRecord: 12.1ms)
+
+
+Started GET "/api/apps" for 127.0.0.1 at 2018-03-14 12:31:42 -0600
+Processing by Api::AppsController#index as HTML
+  [1m[36mApp Load (9.4ms)[0m  [1m[34mSELECT "apps".* FROM "apps" ORDER BY "apps"."created_at" DESC[0m
+Completed 200 OK in 175ms (Views: 153.0ms | ActiveRecord: 9.4ms)
+
+

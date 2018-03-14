@@ -1,21 +1,27 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { getApps } from '../actions/apps';
 import {
   Container,
   Header,
   Card,
-  Image
+  Image,
+  Dropdown,
+  Button,
+  Divider,
 } from 'semantic-ui-react';
 
 class Apps extends React.Component {
-  componentDidMount() {
-    this.props.dispatch(getApps())
-  }
+  state = { category: '' }
 
   apps = () => {
-    return this.props.apps.map( app =>
+    const { apps } = this.props;
+    const { category } = this.state;
+    let visible = apps;
+
+    if (category)
+      visible = apps.filter( a => a.category === category )
+    return visible.map( app =>
       <Card key={app.id}>
         <Image src={app.logo} />
         <Card.Content>
@@ -38,8 +44,23 @@ class Apps extends React.Component {
     )
   }
 
+  clearCategory = () => {
+    this.setState({ category: '' })
+  }
+
+  handleChange = (e, {value}) => {
+    this.setState({ category: value })
+  }
+
+  categoryOptions = () => {
+    const { categories } = this.props;
+    return categories.map( (c,i) => {
+      return { key: i, text: c, value: c }
+    })
+  }
 
   render() {
+    const { category } = this.state;
     return (
       <Container>
         <Header as="h3" textAlign="center">Apps</Header>
@@ -50,15 +71,15 @@ class Apps extends React.Component {
           options={this.categoryOptions()}
           value={category}
           onChange={this.handleChange}
-          />
+        />
         { category &&
-          <Button
-            fluid
-            basic
-            onClick={this.clearCategory}
-          >
-              Clear Filter: {category}
-          </Button>
+            <Button
+              fluid
+              basic
+              onClick={this.clearCategory}
+             >
+               Clear Filter: {category}
+             </Button>
         }
         <Divider />
         <Card.Group itemsPerRow={4}>
@@ -74,4 +95,5 @@ const mapStateToProps = (state) => {
   const categories = [...new Set(apps.map( a => a.category))]
   return { apps, categories }
 }
+
 export default connect(mapStateToProps)(Apps);
