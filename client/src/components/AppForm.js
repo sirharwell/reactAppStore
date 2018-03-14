@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addApp } from '../actions/apps';
+import { addApp, updateApp } from '../actions/apps';
 import { Form } from 'semantic-ui-react';
 
 class AppForm extends React.Component {
@@ -13,7 +13,12 @@ class AppForm extends React.Component {
     author: '',
   }
 
-  state = {...initialState}
+  state = {...this.initialState}
+
+  componentDidMount() {
+    if (this.props.id)
+      this.setState({...this.props})
+  }
 
   handleChange = (e) => {
     const { name, value } = e.target;
@@ -24,7 +29,9 @@ class AppForm extends React.Component {
     e.preventDefault();
     const app = {...this.state}
     const { dispatch, closeForm } = this.props;
-    dispatch(addApp(app))
+    const func = this.props.id ? updateApp : addApp
+    dispatch(func(app))
+    this.setState({...this.initialState})
     closeForm();
   }
 
@@ -61,6 +68,7 @@ class AppForm extends React.Component {
           name="price"
           value={price}
           type="number"
+          step=".05"
           min="0"
           onChange={this.handleChange}
           label="Price"

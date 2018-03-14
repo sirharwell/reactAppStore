@@ -10,13 +10,14 @@ import {
   Button,
   Divider,
 } from 'semantic-ui-react';
+import AppForm from './AppForm';
 
 class Apps extends React.Component {
   state = { category: '', showForm: false }
 
   toggleForm = () => {
     this.setState( state => {
-      return { showForm: !state.showForm}
+      return { showForm: !state.showForm }
     });
   }
 
@@ -66,31 +67,40 @@ class Apps extends React.Component {
   }
 
   render() {
-    const { category } = this.state;
+    const { category, showForm } = this.state;
     return (
       <Container>
         <Header as="h3" textAlign="center">Apps</Header>
-        <Dropdown
-          placeholder="Filter By Category"
-          fluid
-          selection
-          options={this.categoryOptions()}
-          value={category}
-          onChange={this.handleChange}
-        />
-        { category &&
-            <Button
+        <Button onClick={this.toggleForm}>
+          { showForm ? "Hide Form" : "Show Form" }
+        </Button>
+        { showForm ?
+          <AppForm closeForm={this.toggleForm} />
+          :
+          <div>
+            <Dropdown
+              placeholder="Filter By Category"
               fluid
-              basic
-              onClick={this.clearCategory}
-             >
-               Clear Filter: {category}
-             </Button>
+              selection
+              options={this.categoryOptions()}
+              value={category}
+              onChange={this.handleChange}
+            />
+            { category &&
+                <Button
+                  fluid
+                  basic
+                  onClick={this.clearCategory}
+                 >
+                   Clear Filter: {category}
+                 </Button>
+            }
+            <Divider />
+            <Card.Group itemsPerRow={4}>
+              { this.apps() }
+            </Card.Group>
+          </div>
         }
-        <Divider />
-        <Card.Group itemsPerRow={4}>
-          { this.apps() }
-        </Card.Group>
       </Container>
     )
   }

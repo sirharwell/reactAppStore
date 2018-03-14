@@ -388,3 +388,86 @@ Processing by Api::AppsController#index as HTML
 Completed 200 OK in 134ms (Views: 128.2ms | ActiveRecord: 2.2ms)
 
 
+Started GET "/api/apps" for 127.0.0.1 at 2018-03-14 14:00:36 -0600
+Processing by Api::AppsController#index as HTML
+  [1m[36mApp Load (35.7ms)[0m  [1m[34mSELECT "apps".* FROM "apps" ORDER BY "apps"."created_at" DESC[0m
+Completed 200 OK in 246ms (Views: 208.8ms | ActiveRecord: 35.7ms)
+
+
+Started GET "/api/apps" for 127.0.0.1 at 2018-03-14 14:03:26 -0600
+Processing by Api::AppsController#index as HTML
+  [1m[36mApp Load (2.3ms)[0m  [1m[34mSELECT "apps".* FROM "apps" ORDER BY "apps"."created_at" DESC[0m
+Completed 200 OK in 123ms (Views: 119.1ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/api/apps" for 127.0.0.1 at 2018-03-14 14:08:48 -0600
+Processing by Api::AppsController#index as HTML
+  [1m[36mApp Load (2.7ms)[0m  [1m[34mSELECT "apps".* FROM "apps" ORDER BY "apps"."created_at" DESC[0m
+Completed 200 OK in 145ms (Views: 139.0ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/api/apps" for 127.0.0.1 at 2018-03-14 14:09:46 -0600
+Processing by Api::AppsController#index as HTML
+  [1m[36mApp Load (25.6ms)[0m  [1m[34mSELECT "apps".* FROM "apps" ORDER BY "apps"."created_at" DESC[0m
+Completed 200 OK in 91ms (Views: 65.3ms | ActiveRecord: 25.6ms)
+
+
+Started POST "/api/apps" for 127.0.0.1 at 2018-03-14 14:10:12 -0600
+Processing by Api::AppsController#create as HTML
+  Parameters: {"app"=>{"name"=>"Asoka", "description"=>"Officia quos occaecati rerum recusandae. Corporis voluptatem quaerat modi dolor sit. Est eos libero ea consequatur quam laborum et. Corrupti voluptatem ut accusamus ut et suscipit. Aut quasi consequatur non voluptas omnis explicabo accusamus. Debitis dolorum vero ipsum esse.", "category"=>"Lifestyle", "price"=>"87", "version"=>"8.1.3", "author"=>"Ian", "id"=>82, "logo"=>"https://pigment.github.io/fake-logos/logos/medium/color/2.png", "featured"=>true, "created_at"=>"2018-03-14T15:44:12.340Z", "updated_at"=>"2018-03-14T15:44:12.340Z"}}
+Unpermitted parameters: :id, :created_at, :updated_at
+  [1m[35m (38.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (123.0ms)[0m  [1m[32mINSERT INTO "apps" ("name", "description", "category", "price", "version", "author", "logo", "featured", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "Asoka"], ["description", "Officia quos occaecati rerum recusandae. Corporis voluptatem quaerat modi dolor sit. Est eos libero ea consequatur quam laborum et. Corrupti voluptatem ut accusamus ut et suscipit. Aut quasi consequatur non voluptas omnis explicabo accusamus. Debitis dolorum vero ipsum esse."], ["category", "Lifestyle"], ["price", 87.0], ["version", "8.1.3"], ["author", "Ian"], ["logo", "https://pigment.github.io/fake-logos/logos/medium/color/2.png"], ["featured", "t"], ["created_at", "2018-03-14 20:10:13.102392"], ["updated_at", "2018-03-14 20:10:13.102392"]]
+  [1m[35m (29.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 385ms (Views: 0.6ms | ActiveRecord: 191.1ms)
+
+
+Started GET "/api/apps" for 127.0.0.1 at 2018-03-14 14:11:34 -0600
+Processing by Api::AppsController#index as HTML
+  [1m[36mApp Load (7.9ms)[0m  [1m[34mSELECT "apps".* FROM "apps" ORDER BY "apps"."created_at" DESC[0m
+Completed 200 OK in 67ms (Views: 59.0ms | ActiveRecord: 7.9ms)
+
+
+Started PUT "/api/apps/82" for 127.0.0.1 at 2018-03-14 14:12:11 -0600
+Processing by Api::AppsController#update as HTML
+  Parameters: {"app"=>{"name"=>"Asoka", "description"=>"Officia quos occaecati rerum recusandae. Corporis voluptatem quaerat modi dolor sit. Est eos libero ea consequatur quam laborum et. Corrupti voluptatem ut accusamus ut et suscipit. Aut quasi consequatur non voluptas omnis explicabo accusamus. Debitis dolorum vero ipsum esse.", "category"=>"Lifestyle", "price"=>"90", "version"=>"8.1.3", "author"=>"Ian", "id"=>82, "logo"=>"https://pigment.github.io/fake-logos/logos/medium/color/2.png", "featured"=>true, "created_at"=>"2018-03-14T15:44:12.340Z", "updated_at"=>"2018-03-14T15:44:12.340Z"}, "id"=>"82"}
+  [1m[36mApp Load (8.8ms)[0m  [1m[34mSELECT  "apps".* FROM "apps" WHERE "apps"."id" = $1 LIMIT $2[0m  [["id", 82], ["LIMIT", 1]]
+Unpermitted parameters: :id, :created_at, :updated_at
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (12.2ms)[0m  [1m[33mUPDATE "apps" SET "price" = $1, "author" = $2, "updated_at" = $3 WHERE "apps"."id" = $4[0m  [["price", 90.0], ["author", "Ian"], ["updated_at", "2018-03-14 20:12:12.042388"], ["id", 82]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 231ms (Views: 0.8ms | ActiveRecord: 22.4ms)
+
+
+Started GET "/api/apps" for 127.0.0.1 at 2018-03-14 14:17:26 -0600
+Processing by Api::AppsController#index as HTML
+  [1m[36mApp Load (12.3ms)[0m  [1m[34mSELECT "apps".* FROM "apps" ORDER BY "apps"."created_at" DESC[0m
+Completed 200 OK in 86ms (Views: 67.8ms | ActiveRecord: 12.3ms)
+
+
+Started GET "/api/apps" for 127.0.0.1 at 2018-03-14 14:17:56 -0600
+Processing by Api::AppsController#index as HTML
+  [1m[36mApp Load (2.1ms)[0m  [1m[34mSELECT "apps".* FROM "apps" ORDER BY "apps"."created_at" DESC[0m
+Completed 200 OK in 40ms (Views: 37.5ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/api/apps" for 127.0.0.1 at 2018-03-14 14:19:03 -0600
+Processing by Api::AppsController#index as HTML
+  [1m[36mApp Load (13.6ms)[0m  [1m[34mSELECT "apps".* FROM "apps" ORDER BY "apps"."created_at" DESC[0m
+Completed 200 OK in 46ms (Views: 32.5ms | ActiveRecord: 13.6ms)
+
+
+Started GET "/api/apps" for 127.0.0.1 at 2018-03-14 14:22:51 -0600
+Processing by Api::AppsController#index as HTML
+  [1m[36mApp Load (2.3ms)[0m  [1m[34mSELECT "apps".* FROM "apps" ORDER BY "apps"."created_at" DESC[0m
+Completed 200 OK in 75ms (Views: 69.8ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/api/apps" for 127.0.0.1 at 2018-03-14 14:25:01 -0600
+Processing by Api::AppsController#index as HTML
+  [1m[36mApp Load (5.1ms)[0m  [1m[34mSELECT "apps".* FROM "apps" ORDER BY "apps"."created_at" DESC[0m
+Completed 200 OK in 143ms (Views: 134.9ms | ActiveRecord: 5.1ms)
+
+
